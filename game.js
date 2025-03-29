@@ -46,17 +46,15 @@ function checkAnswer(gamePattern, userClickedPattern, level) {
 
 function playSequence(sequence) {
     if (sequence.length > 0) {
-        $("#"+sequence[0]).fadeOut(100).fadeIn(100);
-        var audio = new Audio ("sounds/"+sequence[0]+".mp3");
-        audio.play();
+        playSoundAnimate(sequence[0]);
         setTimeout(function () {playSequence(sequence.slice(1))}, 500);
     }
 }
 
 function playSoundAnimate(colorId) {
-    $("#"+colorId).fadeOut(100).fadeIn(100);
     var audio = new Audio ("sounds/"+colorId+".mp3");
     audio.play();
+    $("#"+colorId).fadeOut(100).fadeIn(100);
 }
 
 $(document).on("click", function() {
