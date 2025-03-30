@@ -1,0 +1,24 @@
+game sequence:
+
+click anywhere -> turn off global event listener
+
+
+next:
+generate next color
+add to sequence
+play sequence
+pause
+add button event listeners
+
+
+wait for user button clicks
+
+
+if clicked button matches next in sequence then continue waiting
+if not then change h1 and end game
+
+once len(clickedList) == len(sequence)
+next level
+
+
+try to sort the issue where the button listeners are enabled before playSequence is finished
