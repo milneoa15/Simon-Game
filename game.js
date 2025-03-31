@@ -39,8 +39,14 @@ function checkAnswer(gamePattern, userClickedPattern, level) {
         }
     } else {
         //alert("game over. you reached level " + level);
-        $("h1").html("Game Over. You Reached Level " + level)
+        var audio = new Audio ("sounds/wrong.mp3");
+        audio.play();
+        $("body").addClass("game-over");
+        $("h1").html("Game Over. You Reached Level " + level + "<br>Click to Restart</br>")
         $(".square").off("click");
+        setTimeout(function () {
+            $("body").removeClass("game-over");
+            clickToStart();}, 100);
     }
 }
 
@@ -57,11 +63,15 @@ function playSoundAnimate(colorId) {
     $("#"+colorId).fadeOut(100).fadeIn(100);
 }
 
-$(document).on("click", function() {
-    startGame();
-});
+function clickToStart() {
+    $(document).on("click", function() {
+        startGame();
+    });
+}
 
 function startGame() {
     $(document).off("click");
     setTimeout(function () {mainGame()}, 1000);
 }
+
+clickToStart();

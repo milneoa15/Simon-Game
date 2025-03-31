@@ -39,3 +39,7 @@ body {
 .blue {
     background-color: blue;
 }
+
+.game-over {
+    background-color: red;
+}
